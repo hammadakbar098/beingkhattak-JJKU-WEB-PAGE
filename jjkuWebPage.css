@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "go3v2";
+  src: url("Fonts/go3v2.ttf") format("truetype");
+  /* Add additional font formats if needed */
+}
+
+@font-face {
+  font-family: "LEMONMILK-Medium";
+  src: url("Fonts/LEMONMILK-Medium.otf") format("opentype");
+  /* Add additional font formats if needed */
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(#fc0505, #570101, #030303);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  /* margin: 0 auto; */
+  padding: 40px;
+  text-align: center;
+}
+
+.logo {
+  font-family: "go3v2", Arial, sans-serif; /* Apply go3v2.ttf font to all headings */
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "go3v2", Arial, sans-serif; /* Apply go3v2.ttf font to all headings */
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p,
+span,
+a,
+li {
+  font-family: "LEMONMILK-Medium", Arial, sans-serif; /* Apply LEMONMILK-Medium.otf font to paragraphs, spans, and links */
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Header styles */
+header {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px;
+  padding-bottom: -20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: flex-start; /* Align the content on the left */
+  align-items: center;
+  flex-direction: column; /* Align the content vertically */
+}
+
+.logo {
+  font-size: 62px;
+  font-weight: bold;
+  margin-bottom: 30px; /* Add more margin bottom to create distance */
+  color: #ff0000;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center align the menu items */
+}
+
+.menu li {
+  margin: 0px 10px; /* Add margin to the menu items */
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+  color: #fafa34;
+}
+
+/* Main content styles */
+.main-content {
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+}
+
+.main-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Character section styles */
+.character-section,
+.map-section,
+.ui-screen-section {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.container h1 {
+  font-size: 40px;
+  color: black;
+}
+.container p,
+div,
+li {
+  font-size: 12px;
+  color: lightgrey;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+::-webkit-scrollbar-track {
+  backdrop-filter: blur(25px);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #030303;
+}
+
+.character,
+.map {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 50);
+  backdrop-filter: blur(25px);
+  flex-shrink: 0;
+  border-radius: 5px;
+  width: 350px;
+  margin: 0 10px;
+  padding: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s, transform 1s;
+}
+
+.character.visible,
+.map.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.character img,
+.map img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.character h2,
+.map h2 {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.character p,
+.map p {
+  font-size: 12px;
+  color: lightgrey;
+  margin-bottom: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.game-mode-list li {
+  text-align: left;
+}
+
+#about {
+  margin-top: 40px;
+  text-align: justify;
+}
+.subList li {
+  margin-bottom: -0.5px;
+}
+.menu .download-btn a {
+  color: red;
+}
+.animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jujutsu Kaisen Unleashed</title>
+    <style>
+      @font-face {
+        font-family: "go3v2";
+        src: url("go3v2.ttf") format("truetype");
+        /* Add additional font formats if needed */
+      }
+
+      @font-face {
+        font-family: "LEMONMILK-Medium";
+        src: url("LEMONMILK-Medium.otf") format("opentype");
+        /* Add additional font formats if needed */
+      }
+
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+        background: radial-gradient(#fc0505, #570101, #030303);
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .logo {
+        font-family: "go3v2", Arial, sans-serif; /* Apply go3v2.ttf font to all headings */
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "go3v2", Arial, sans-serif; /* Apply go3v2.ttf font to all headings */
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      p,
+      span,
+      a,
+      li {
+        font-family: "LEMONMILK-Medium", Arial, sans-serif; /* Apply LEMONMILK-Medium.otf font to paragraphs, spans, and links */
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      /* Header styles */
+      header {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px;
+        padding-bottom: -20px;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: flex-start; /* Align the content on the left */
+        align-items: center;
+        flex-direction: column; /* Align the content vertically */
+      }
+
+      .logo {
+        font-size: 62px;
+        font-weight: bold;
+        margin-bottom: 30px; /* Add more margin bottom to create distance */
+        color: #ff0000;
+      }
+
+      .menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center align the menu items */
+      }
+
+      .menu li {
+        margin: 0px 10px; /* Add margin to the menu items */
+      }
+
+      .menu li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .menu li a:hover {
+        color: #fafa34;
+      }
+
+      /* Main content styles */
+      .main-content {
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 5);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+        padding: 40px;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s, transform 1s;
+      }
+
+      .main-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Character section styles */
+      .character-section,
+      .map-section,
+      .ui-screen-section {
+        display: flex;
+        overflow-x: auto;
+        margin-bottom: 30px;
+      }
+
+      .container h1 {
+        font-size: 40px;
+        color: black;
+      }
+      .container p,
+      div,
+      li {
+        font-size: 12px;
+        color: lightgrey;
+      }
+
+      ::-webkit-scrollbar {
+        width: 1px;
+      }
+      ::-webkit-scrollbar-track {
+        backdrop-filter: blur(25px);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.09);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #030303;
+      }
+
+      .character,
+      .map {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 50);
+        backdrop-filter: blur(25px);
+        flex-shrink: 0;
+        border-radius: 5px;
+        width: 350px;
+        margin: 0 10px;
+        padding: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 1s, transform 1s;
+      }
+
+      .character.visible,
+      .map.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .character img,
+      .map img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .character h2,
+      .map h2 {
+        font-size: 18px;
+        color: black;
+        margin-bottom: 10px;
+      }
+
+      .character p,
+      .map p {
+        font-size: 12px;
+        color: lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #000000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .game-mode-list li {
+        text-align: left;
+      }
+
+      #about {
+        margin-top: 40px;
+        text-align: justify;
+      }
+      .subList li {
+        margin-bottom: -0.5px;
+      }
+      .menu .download-btn a {
+        color: red;
+      }
+      .animation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <div class="logo">Jujutsu Kaisen Unleashed</div>
+        <ul class="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#game-modes">Game Modes</a></li>
+          <li><a href="#UI-screens">UI Screens</a></li>
+          <li><a href="#characters">Characters</a></li>
+          <li><a href="#maps">Maps</a></li>
+          <li class="download-btn"><a href="">Get it</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div id="about" class="container main-content">
+      <h1>Welcome to Jujutsu Kaisen Unleashed</h1>
+      <p>
+        Jujutsu Kaisen Unleashed is an electrifying third-person fighting game
+        that brings the captivating world of the popular anime series, Jujutsu
+        Kaisen, to life. Developed on the cutting-edge Unreal Engine 5, our game
+        offers an immersive and visually stunning experience for fans and gamers
+        alike.
+      </p>
+      <p>
+        Immerse yourself in the dark and supernatural realm of Jujutsu Kaisen as
+        you take on the role of your favorite characters, such as Yuji Itadori,
+        Megumi Fushiguro, and Nobara Kugisaki. Master their unique fighting
+        styles and unleash powerful techniques, combining strength, strategy,
+        and sorcery in adrenaline-pumping battles against formidable opponents.
+      </p>
+      <p>
+        With meticulous attention to detail, our development team has faithfully
+        recreated the intricate world and iconic locations from the anime,
+        ensuring that players feel fully immersed in the Jujutsu Kaisen
+        universe. From the eerie hallways of Tokyo Metropolitan Jujutsu
+        Technical High School to the treacherous domain of curses, every
+        environment has been carefully crafted to deliver a visually stunning
+        and authentic experience.
+      </p>
+      <p>
+        Jujutsu Kaisen Unleashed leverages the power of Unreal Engine 5 to
+        deliver next-level graphics, pushing the boundaries of visual fidelity.
+        The game's advanced lighting and particle effects bring to life the
+        intense battles and magical powers showcased in the anime, making each
+        encounter feel like a thrilling spectacle.
+      </p>
+      <p>
+        Whether you're a devoted fan of Jujutsu Kaisen or a fighting game
+        enthusiast seeking a new challenge, our game offers an exciting and
+        engaging experience. Dive into a rich storyline, filled with twists and
+        turns, as you uncover the dark secrets lurking in the shadows. Engage in
+        epic battles against both familiar characters from the anime and
+        original foes, pushing your skills to the limit.
+      </p>
+      <p>
+        We are dedicated to providing an exceptional gaming experience, and we
+        strive to listen to the feedback of our passionate community. Join us on
+        this exhilarating journey as we continue to expand and improve Jujutsu
+        Kaisen Unleashed, bringing you regular updates, new content, and
+        exciting features.
+      </p>
+      <p>
+        Prepare to unleash your inner sorcerer and embark on an unforgettable
+        adventure in Jujutsu Kaisen Unleashed – where intense combat, gripping
+        storytelling, and stunning visuals come together to deliver an
+        unparalleled gaming experience. Get ready to fight, protect, and face
+        the curses that threaten our world!
+      </p>
+    </div>
+
+    <div id="game-modes" class="container main-content">
+      <h1>Game Modes</h1>
+      <p>Choose from a variety of exciting game modes.</p>
+      <ul class="game-mode-list">
+        <li>
+          Arcade Battle Mode
+          <p>
+            In Arcade Battle Mode, get ready to put your fighting prowess to the
+            test as you face off against three formidable AI enemy robots.
+            Engage in intense battles that will challenge your reflexes,
+            strategy, and mastery of the game's mechanics.
+          </p>
+        </li>
+        <li>
+          Solo Battle Mode
+          <p>
+            In Solo Battle Mode, prepare for a thrilling one-on-one showdown as
+            you dive into an immersive and adrenaline-fueled fighting
+            experience. Step into the shoes of your chosen character and face
+            off against a variety of challenging opponents in intense,
+            high-stakes battles.
+          </p>
+          <ul class="subList">
+            <li>
+              Vs AI Mode
+              <p>Here the opponent will be an AI Robot.</p>
+            </li>
+            <li>
+              Vs Player Mode
+              <p>Here the opponent will be another player.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Team Battle Mode
+          <p>
+            In Team Battle Mode, prepare to embark on an epic cooperative
+            journey with a partner of your choosing. Select your dream team from
+            a diverse roster of powerful warriors, each possessing unique
+            abilities and strengths. Strategize, coordinate, and combine your
+            skills to dominate the battlefield and emerge victorious.
+          </p>
+          <ul class="subList">
+            <li>
+              Vs AI Mode
+              <p>Here the opponent will be an AI Robots.</p>
+            </li>
+            <li>
+              Vs Player Mode
+              <p>Here the opponent will be another players.</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Practice Mode
+          <p>
+            In Practice Mode, aspiring fighters like you have the opportunity to
+            perfect their techniques, experiment with different strategies, and
+            refine their gameplay mechanics. This mode serves as a dedicated
+            training ground where you can focus on sharpening your skills
+            without the pressure of intense battles.
+          </p>
+        </li>
+        <!-- Add more game modes as needed -->
+      </ul>
+    </div>
+
+    <div id="UI-screens" class="container main-content">
+      <h1>UI Screens</h1>
+      <div class="ui-screen-section">
+        <div class="character">
+          <img src="./Images/screen1.jpg" alt="Screen 1" />
+          <h2>Main menu</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen2.jpg" alt="Screen 2" />
+          <h2>Mode Selection</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen3.jpg" alt="Screen 3" />
+          <h2>Settings</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen4.jpg" alt="Screen 4" />
+          <h2>Manga</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen5.jpg" alt="Screen 5" />
+          <h2>Map Select</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen6.jpg" alt="Screen 6" />
+          <h2>Solo Battle</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/screen7.jpg" alt="Screen 7" />
+          <h2>Team Battle</h2>
+        </div>
+        <!-- Add more character divs as needed -->
+      </div>
+    </div>
+
+    <div id="characters" class="container main-content">
+      <h1>Characters</h1>
+      <div class="character-section">
+        <div class="character">
+          <img src="./Images/character1.jpg" alt="Character 1" />
+          <h2>Yuji Itadori</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/character2.jpg" alt="Character 2" />
+          <h2>Satoru Gojo</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/character3.jpg" alt="Character 3" />
+          <h2>Nobara</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/character4.jpg" alt="Character 4" />
+          <h2>Megumi Fushiguro</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/character5.jpg" alt="Character 5" />
+          <h2>Inumaki Toge</h2>
+        </div>
+        <div class="character">
+          <img src="./Images/character6.jpg" alt="Character 6" />
+          <h2>Yoshinobu</h2>
+        </div>
+        <!-- Add more character divs as needed -->
+      </div>
+    </div>
+
+    <div id="maps" class="container main-content">
+      <h1>Maps</h1>
+      <div class="map-section">
+        <div class="map">
+          <img src="./Images/map1.jpg" alt="Map 1" />
+          <h2>Antarctic Map</h2>
+        </div>
+        <div class="map">
+          <img src="./Images/map2.jpg" alt="Map 2" />
+          <h2>Forest Map</h2>
+        </div>
+        <div class="map">
+          <img src="./Images/map3.jpg" alt="Map 3" />
+          <h2>Desert Map</h2>
+        </div>
+        <div class="map">
+          <img src="./Images/map4.jpg" alt="Map 4" />
+          <h2>Antarctic Night Map</h2>
+        </div>
+        <div class="map">
+          <img src="./Images/map5.jpg" alt="Map 5" />
+          <h2>Desert Night Map</h2>
+        </div>
+        <div class="map">
+          <img src="./Images/map6.jpg" alt="Map 6" />
+          <h2>Forest Night Map</h2>
+        </div>
+        <div class="map">
+          <p>MORE MAPS COMING SOON...</p>
+        </div>
+        <!-- Add more map divs as needed -->
+      </div>
+    </div>
+
+    <div class="animation">
+      <img
+        src="./Images/jujutsu-kaisen-logo.jpg"
+        alt="Jujutsu Kaisen Unleashed Logo"
+      />
+    </div>
+
+    <footer>
+      <div class="container">
+        &copy; 2023 Jujutsu Kaisen Unleashed. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // JavaScript code can be added here for further interactivity and animations
+      window.addEventListener("scroll", function () {
+        var mainContentElements = document.querySelectorAll(".main-content");
+        var characterElements = document.querySelectorAll(".character");
+        var mapElements = document.querySelectorAll(".map");
+        var windowHeight = window.innerHeight;
+
+        for (var i = 0; i < mainContentElements.length; i++) {
+          var elementPosition = mainContentElements[i].getBoundingClientRect()
+            .top;
+          if (elementPosition - windowHeight <= 0) {
+            mainContentElements[i].classList.add("visible");
+          }
+        }
+
+        for (var i = 0; i < characterElements.length; i++) {
+          var elementPosition = characterElements[i].getBoundingClientRect()
+            .top;
+          if (elementPosition - windowHeight <= 0) {
+            characterElements[i].classList.add("visible");
+          }
+        }
+
+        for (var i = 0; i < mapElements.length; i++) {
+          var elementPosition = mapElements[i].getBoundingClientRect().top;
+          if (elementPosition - windowHeight <= 0) {
+            mapElements[i].classList.add("visible");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
